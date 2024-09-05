@@ -1,0 +1,39 @@
+.signup-container {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff; 
+    padding: 20px;
+  }
+  
+  .signup-card {
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px; 
+    padding: 20px;
+  }
+  
+  .signup-card h3 {
+    margin-bottom: 20px; 
+  }
+  
+
+  .signup-card .form-control {
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    color: #fff; 
+  }
+  
+  .signup-card .form-control::placeholder {
+    color: #ccc; 
+  }
+  
+  /* Style for buttons */
+  .signup-card .btn-primary {
+    background-color: #007bff; 
+    border-color: #007bff; 
+  }
+  
+  .signup-card .btn-primary:hover {
+    background-color: #0056b3; 
+    border-color: #004085; 
+  }
+  

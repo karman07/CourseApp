@@ -1,0 +1,40 @@
+/* Apply general styling to the container */
+.login-container {
+    background: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+    color: #fff; /* White text color */
+    padding: 20px;
+  }
+  
+  /* Style for the card */
+  .login-card {
+    background: rgba(255, 255, 255, 0.1); /* Slightly opaque white */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+  }
+  
+  .login-card h3 {
+    margin-bottom: 20px; 
+  }
+  
+  .login-card .form-control {
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    color: #fff; 
+  }
+  
+  .login-card .form-control::placeholder {
+    color: #ccc; 
+  }
+  
+
+  .login-card .btn-primary {
+    background-color: #007bff; 
+    border-color: #007bff; 
+  }
+  
+  .login-card .btn-primary:hover {
+    background-color: #0056b3; 
+    border-color: #004085; 
+  }
+  
