@@ -11,7 +11,8 @@ const Signin = () => {
 	const [success, setSuccess] = useState(null);
 	const navigate = useNavigate();
 
-	const handleSubmit = async () => {
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 		// Basic form validation
 		if (!email || !password) {
 			setError('All fields are required');
@@ -43,7 +44,7 @@ const Signin = () => {
 			navigate('/courses');
 			window.location.reload();
 		} catch (err) {
-			setError('An error occurred. Please try again.');
+			setError('Invalid Credentials!');
 		} finally {
 			setLoading(false);
 		}
