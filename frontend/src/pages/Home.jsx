@@ -12,16 +12,15 @@ const Home = () => {
 								<div className='w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0'>
 									<h1 className='text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl'>
 										<span className='block xl:inline'>
-											Useful Tools to
+											Transform Ideas into Code. {''}
 										</span>
 										<span className='block text-indigo-600 xl:inline'>
-											Help You Build Faster.
+											Start Learning Now
 										</span>
 									</h1>
 									<p className='mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl'>
-										It's never been easier to build
-										beautiful websites that convey your
-										message and tell your story.
+										Transform your passion into practical
+										coding expertise.
 									</p>
 									<div className='relative flex flex-col sm:flex-row sm:space-x-4'>
 										<Link
@@ -90,7 +89,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Maximize productivity and growth
+									AI-Assisted Doubt Portal
 								</li>
 								<li className='box-border relative py-1 pl-0 text-left text-gray-500 border-solid'>
 									<span className='inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full'>
@@ -98,7 +97,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Speed past your competition
+									Code Review
 								</li>
 								<li className='box-border relative py-1 pl-0 text-left text-gray-500 border-solid'>
 									<span className='inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full'>
@@ -106,7 +105,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Learn the top techniques
+									Learn the top educators
 								</li>
 							</ul>
 						</div>
@@ -114,7 +113,7 @@ const Home = () => {
 					<div className='box-border flex flex-col items-center content-center px-8 mx-auto mt-2 leading-6 text-black border-0 border-gray-300 border-solid md:mt-20 xl:mt-0 md:flex-row max-w-7xl lg:px-16'>
 						<div className='box-border w-full text-black border-solid md:w-1/2 md:pl-6 xl:pl-32'>
 							<h2 className='m-0 text-xl font-semibold leading-tight border-0 border-gray-300 lg:text-3xl md:text-2xl'>
-								Automated Tasks
+								What we offer
 							</h2>
 							<p className='pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-10 lg:text-lg'>
 								Save time and money with our revolutionary
@@ -127,7 +126,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Automated task management workflow
+									Lifetime Validity
 								</li>
 								<li className='box-border relative py-1 pl-0 text-left text-gray-500 border-solid'>
 									<span className='inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full'>
@@ -135,7 +134,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Detailed analytics for your data
+									Hands-On Projects
 								</li>
 								<li className='box-border relative py-1 pl-0 text-left text-gray-500 border-solid'>
 									<span className='inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full'>
@@ -143,7 +142,7 @@ const Home = () => {
 											✓
 										</span>
 									</span>{' '}
-									Some awesome integrations
+									Certification of Completion
 								</li>
 							</ul>
 						</div>
@@ -167,9 +166,8 @@ const Home = () => {
 										to succeed!
 									</h2>
 									<p className='mb-4 font-medium tracking-tight text-gray-400 xl:mb-6'>
-										It's never been easier to build a
-										business of your own. Our tools will
-										help you with the following:
+										It's never been easier to get a job. Our
+										tools will help you with the following:
 									</p>
 									<ul>
 										<li className='flex items-center py-2 space-x-4 xl:py-3'>
@@ -188,7 +186,7 @@ const Home = () => {
 												></path>
 											</svg>
 											<span className='font-medium text-gray-500'>
-												Faster Processing and Delivery
+												Resume Generator
 											</span>
 										</li>
 										<li className='flex items-center py-2 space-x-4 xl:py-3'>
@@ -207,8 +205,7 @@ const Home = () => {
 												></path>
 											</svg>
 											<span className='font-medium text-gray-500'>
-												Out of the Box Tracking and
-												Monitoring
+												AI Video Summariser
 											</span>
 										</li>
 										<li className='flex items-center py-2 space-x-4 xl:py-3'>
@@ -227,8 +224,7 @@ const Home = () => {
 												></path>
 											</svg>
 											<span className='font-medium text-gray-500'>
-												100% Protection and Security for
-												Your App
+												Doubt Portal
 											</span>
 										</li>
 									</ul>
@@ -292,7 +288,7 @@ const Home = () => {
 									<div className='flex items-center justify-center'>
 										<div className='w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full'>
 											<img
-												src='https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1256&amp;q=80'
+												src='https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=3578&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&amp;w=1256&amp;q=80'
 												className='object-cover w-full h-full'
 											/>
 										</div>

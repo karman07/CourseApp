@@ -72,8 +72,11 @@ const Alumnis = () => {
 											<footer className='flex-1'>
 												<p className='text-sm'>
 													Placed at{' '}
-													{alumni.company ||
-														'Microsoft'}
+													<b className='text-base'>
+														{alumni.company ||
+															'Microsoft'}
+													</b>{' '}
+													- {alumni.package || 'N/A'}
 												</p>
 											</footer>
 										</div>
