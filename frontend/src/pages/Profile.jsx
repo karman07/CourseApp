@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../config.js';
 
 const Profile = () => {
 	const [name, setName] = useState(localStorage.getItem('name'));
@@ -23,7 +24,7 @@ const Profile = () => {
 
 		try {
 			const response = await axios.post(
-				`http://localhost:3000/`,
+				`${BASE_URL}/`,
 				{
 					name,
 					email,

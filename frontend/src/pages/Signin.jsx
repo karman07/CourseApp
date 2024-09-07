@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../config.js';
 
 const Signin = () => {
 	const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const Signin = () => {
 
 		try {
 			const response = await axios.post(
-				`http://localhost:3000/api/users/login`,
+				`${BASE_URL}/api/users/login`,
 				{
 					email,
 					password,

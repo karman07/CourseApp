@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../config.js';
 
 const CourseDetail = () => {
 	const { id } = useParams();
@@ -10,7 +11,7 @@ const CourseDetail = () => {
 		const fetchCourseDetail = async () => {
 			try {
 				const response = await axios.get(
-					`http://localhost:3000/api/courses/${id}`
+					`${BASE_URL}/api/courses/${id}`
 				);
 				setCourse(response.data);
 				console.log('Course Detail: ', response.data);

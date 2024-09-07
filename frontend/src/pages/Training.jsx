@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../config.js';
 
 const Training = () => {
 	const [trainings, setTrainings] = useState([]);
@@ -8,9 +9,7 @@ const Training = () => {
 	useEffect(() => {
 		const fetchTrainings = async () => {
 			try {
-				const response = await axios.get(
-					`http://localhost:3000/api/training`
-				);
+				const response = await axios.get(`${BASE_URL}/api/training`);
 				setTrainings(response.data);
 				console.log('Training: ', response.data);
 			} catch (err) {
