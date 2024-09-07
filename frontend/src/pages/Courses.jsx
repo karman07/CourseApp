@@ -79,6 +79,12 @@ const Courses = () => {
 							</div>
 						);
 					})}
+					{!courses ||
+						(courses?.length === 0 && (
+							<div className='text-center w-full'>
+								<p className='text-xl'>No courses found!</p>
+							</div>
+						))}
 				</div>
 			</div>
 		</>
