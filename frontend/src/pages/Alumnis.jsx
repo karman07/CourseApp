@@ -3,33 +3,28 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL, DEFAULT_IMG_URL } from '../config.js';
 
-const Courses = () => {
-	const [courses, setCourses] = useState([]);
+const Alumnis = () => {
+	const [alumnis, setAlumnis] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		const fetchCourses = async () => {
+		const fetchAlumnis = async () => {
 			try {
 				setLoading(true);
 				setError(null);
-				const response = await axios.get(`${BASE_URL}/api/courses`);
-				setCourses(response.data);
+				const response = await axios.get(`${BASE_URL}/api/alumni`);
+				setAlumnis(response.data);
 				setLoading(false);
-				console.log('Courses: ', response.data);
+				console.log('Alumnis: ', response.data);
 			} catch (err) {
-				setError('Failed to load courses.');
+				setError('Failed to load alumnis.');
 				setLoading(false);
 				console.error(err);
 			}
 		};
-		fetchCourses();
+		fetchAlumnis();
 	}, []);
-
-	const truncateText = (text, maxLength) => {
-		if (text.length <= maxLength) return text;
-		return text.slice(0, maxLength) + '...';
-	};
 
 	return (
 		<>
@@ -46,59 +41,41 @@ const Courses = () => {
 						<div className='text-center w-full'>
 							<p className='text-xl text-red-500'>{error}</p>
 						</div>
-					) : courses.length === 0 ? (
+					) : alumnis?.length === 0 ? (
 						<div className='text-center w-full'>
-							<p className='text-xl'>No courses found!</p>
+							<p className='text-xl'>No alumnis found!</p>
 						</div>
 					) : (
 						<div className='flex flex-wrap -mx-1 lg:-mx-4 w-full'>
-							{courses.map((course) => (
+							{alumnis.map((alumni) => (
 								<div
 									className='my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 flex'
-									key={course._id}
+									key={alumni._id}
 								>
 									<article className='flex flex-col overflow-hidden rounded-lg shadow-lg bg-white'>
 										<img
 											alt='Placeholder'
 											className='block w-full h-[300px] object-cover'
 											src={
-												course.image || DEFAULT_IMG_URL
+												alumni.image || DEFAULT_IMG_URL
 											}
 										/>
 										<div className='flex flex-col flex-1 p-4'>
 											<header className='flex items-center justify-between mb-2'>
 												<h1 className='text-lg'>
-													<Link
-														className='text-black underline'
-														to={`/courseDetail/${course._id}`}
-													>
-														{course.name}
-													</Link>
+													{alumni.name}
 												</h1>
 												<p className='text-grey-darker text-sm'>
-													₹{course.price}
+													{alumni.batch}
 												</p>
 											</header>
-											<footer className='flex-1 mb-4'>
+											<footer className='flex-1'>
 												<p className='text-sm'>
-													{truncateText(
-														course.description,
-														120
-													)}
+													Placed at{' '}
+													{alumni.company ||
+														'Microsoft'}
 												</p>
 											</footer>
-											<div className='text-right'>
-												<Link
-													to={`/courseDetail/${course._id}`}
-												>
-													<button
-														type='button'
-														className='px-4 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white'
-													>
-														Learn More
-													</button>
-												</Link>
-											</div>
 										</div>
 									</article>
 								</div>
@@ -111,4 +88,4 @@ const Courses = () => {
 	);
 };
 
-export default Courses;
+export default Alumnis;
