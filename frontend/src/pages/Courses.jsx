@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../config.js';
+import { BASE_URL, DEFAULT_IMG_URL } from '../config.js';
 
 const Courses = () => {
 	const [courses, setCourses] = useState([]);
@@ -38,7 +38,7 @@ const Courses = () => {
 									<img
 										alt='Placeholder'
 										className='block h-auto w-full'
-										src={course.image}
+										src={course.image || DEFAULT_IMG_URL}
 									/>
 
 									<header className='flex items-center justify-between leading-tight p-2 md:p-4'>
@@ -54,6 +54,14 @@ const Courses = () => {
 											₹{course.price}
 										</p>
 									</header>
+									<footer className='flex items-center justify-between leading-none pb-2 md:pb-4 !pl-2'>
+										<p className='ml-2 text-sm'>
+											{truncateText(
+												course.description,
+												120
+											)}
+										</p>
+									</footer>
 									<div className='p-2 md:p-4 !pt-0'>
 										<Link
 											to={`/courseDetail/${course._id}`}
@@ -66,14 +74,6 @@ const Courses = () => {
 											</button>
 										</Link>
 									</div>
-									{/* <footer className='flex items-center justify-between leading-none pb-2 md:pb-4 !pl-2'>
-										<p className='ml-2 text-sm'>
-											{truncateText(
-												course.description,
-												120
-											)}
-										</p>
-									</footer> */}
 								</article>
 							</div>
 						);
