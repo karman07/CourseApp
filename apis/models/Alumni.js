@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const alumniSchema = new mongoose.Schema({
   name: String,
-  package: Number,
+  image:String,
+  batch:String,
+  package: String,
   company: String,
 });
 

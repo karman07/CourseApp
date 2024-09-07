@@ -13,6 +13,22 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const course = await Course.findById(id);
+
+    if (!course) {
+      return res.status(404).send({ message: 'Course not found' });
+    }
+
+    res.status(200).send(course);
+  } catch (error) {
+    res.status(500).send({ message: 'Server error', error });
+  }
+});
+
 
 router.get('/', async (req, res) => {
   try {

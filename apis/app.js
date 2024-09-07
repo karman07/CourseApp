@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
+
 
 const courseRoutes = require('./routes/Course');
 const alumniRoutes = require('./routes/Alumni');
@@ -9,8 +12,11 @@ const userRoutes = require('./routes/User');
 const trainingRoutes = require('./routes/Training');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3001;
 
+app.use(cors({
+  origin: 'http://localhost:3000' 
+}));
 
 app.use(bodyParser.json());
 
