@@ -48,6 +48,14 @@ const Footer = () => {
 										Profile
 									</Link>
 								</div>
+								<div className='px-5 py-2'>
+									<Link
+										to='/dashboard'
+										className='text-base leading-6 text-gray-500 hover:text-gray-900'
+									>
+										Dashboard
+									</Link>
+								</div>
 							</>
 						) : (
 							<>

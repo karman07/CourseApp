@@ -63,7 +63,7 @@ const TrainingDetail = () => {
 									<Link
 										to={`${
 											localStorage.getItem('token')
-												? `/trainingDetail/${training._id}`
+												? `/purchase/${training._id}`
 												: '/signin'
 										}`}
 									>

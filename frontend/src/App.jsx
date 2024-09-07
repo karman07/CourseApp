@@ -11,6 +11,8 @@ import Signin from './pages/Signin';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import Alumnis from './pages/Alumnis';
+import PurchaseCourse from './pages/PurchaseCourse';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
 	const [token, setToken] = useState(localStorage.getItem('token') || '');
@@ -35,6 +37,8 @@ const App = () => {
 					<Route path='/signin' element={<Signin />} />
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/alumnis' element={<Alumnis />} />
+					<Route path='/purchase/:id' element={<PurchaseCourse />} />
+					<Route path='/dashboard' element={<Dashboard />} />
 				</Routes>
 				<Footer />
 			</Router>

@@ -76,7 +76,7 @@ const Alumnis = () => {
 														{alumni.company ||
 															'Microsoft'}
 													</b>{' '}
-													- {alumni.package || 'N/A'}
+													- {alumni.package + ' LPA' || 'N/A'}
 												</p>
 											</footer>
 										</div>
