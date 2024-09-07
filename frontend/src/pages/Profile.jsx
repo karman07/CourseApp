@@ -23,7 +23,7 @@ const Profile = () => {
 
 		try {
 			const response = await axios.post(
-				`http://localhost:3000/api/users/login`,
+				`http://localhost:3000/`,
 				{
 					name,
 					email,
@@ -76,7 +76,7 @@ const Profile = () => {
 										}
 										disabled
 									/>
-									{error && (
+									{/* {error && (
 										<p className='text-red-500 text-center mt-2'>
 											{error}
 										</p>
@@ -85,8 +85,8 @@ const Profile = () => {
 										<p className='text-green-500 text-center mt-2'>
 											{success}
 										</p>
-									)}
-									<button
+									)} */}
+									{/* <button
 										className={`mt-5 tracking-wide font-semibold ${
 											loading
 												? 'bg-gray-400 cursor-not-allowed'
@@ -136,7 +136,7 @@ const Profile = () => {
 												</span>
 											</>
 										)}
-									</button>
+									</button> */}
 								</div>
 							</div>
 						</div>
