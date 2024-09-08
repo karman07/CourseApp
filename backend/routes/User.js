@@ -87,4 +87,49 @@ router.get('/', async (req, res) => {
 	}
 });
 
+
+router.get('/:id/courses', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findById(id).populate('courses'); 
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ courses: user.courses });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+});
+
+
+router.post('/:id/courses', async (req, res) => {
+    const { id } = req.params;
+    const { courseId } = req.body; 
+
+    try {
+        const user = await User.findById(id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const course = await Course.findById(courseId);
+        if (!course) {
+            return res.status(404).json({ message: 'Course not found' });
+        }
+
+        
+        if (!user.courses.includes(courseId)) {
+            user.courses.push(courseId);
+            await user.save();
+        }
+
+        res.status(200).json({ message: 'Course added to user', user });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+});
+
+
 module.exports = router;

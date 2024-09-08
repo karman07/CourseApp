@@ -32,11 +32,11 @@ function Training() {
         }
     };
 
-    const actionsTemplate = (rowDate) => {
+    const actionsTemplate = (rowData) => {
         return (
             <>
                 <button className='btn btn-success my-1' onClick={() => {
-                    setSelectedUserId(rowDate._id);
+                    setSelectedUserId(rowData._id);
                     setShowViewMode(true);
                 }}>
                     <i className='pi pi-eye'></i>
@@ -82,6 +82,19 @@ function Training() {
         );
     };
 
+    const coursesTemplate = (rowData) => {
+        if (rowData.courses && rowData.courses.length > 0) {
+            return (
+                <ul>
+                    {rowData.courses.map((course, index) => (
+                        <li key={index}>{course.name}</li> // Adjust according to your course schema
+                    ))}
+                </ul>
+            );
+        }
+        return <span>No courses</span>;
+    };
+
     return (
         <div className='users-page'>
             <div className='container'>
@@ -94,7 +107,7 @@ function Training() {
                     <DataTable value={users}>
                         <Column field="name" header="Name"></Column>
                         <Column field="email" header="Email"></Column>
-                        <Column field="courses" header="Purchased Courses"></Column>
+                        <Column header="Purchased Courses" body={coursesTemplate}></Column>
                         <Column header="Actions" body={actionsTemplate}></Column>
                     </DataTable>
                 </div>

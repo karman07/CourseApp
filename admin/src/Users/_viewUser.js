@@ -7,7 +7,8 @@ const initialcourseInfo = {
     description: '',
     price: 0,
     image: '',
-    type: 0
+    type: 0,
+    courses: [] // Make sure to initialize courses as an array
 }
 
 function ViewCourse(props) {
@@ -24,13 +25,10 @@ function ViewCourse(props) {
                 console.log(response.data);
                 setcourseInfo(response.data);
             }
-            return
-        }
-        catch (e) {
+        } catch (e) {
             console.log(e)
         }
     }
-
 
     return (
         <div className='Course-view'>
@@ -51,7 +49,19 @@ function ViewCourse(props) {
                     <div className='col-sm-12 col-md-6'>
                         <p>
                             <span>Courses:</span>
-                            <span>{courseInfo.courses}</span>
+                            <span>
+                                {courseInfo.courses.length > 0 ? (
+                                    <ul>
+                                        {courseInfo.courses.map((course, index) => (
+                                            <li key={index}>
+                                                <strong>{course.name}</strong>: {course.description} - ${course.price}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    'No courses available'
+                                )}
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -60,4 +70,4 @@ function ViewCourse(props) {
     )
 }
 
-export default ViewCourse
+export default ViewCourse;
