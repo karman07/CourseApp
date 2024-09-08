@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    courses:{
+        type:[String],
+        default:['Not enrolled yet']
+    },
     date: {
         type: Date,
         default: Date.now

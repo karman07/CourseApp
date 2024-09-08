@@ -20,7 +20,7 @@ function AddCourse(props) {
         try{
             const response = await axios.post(`${BASE_URL}/alumni/`,courseInfo);
             if(response){
-                props.setCourseAdded();
+                props.setUserAdded();
             }
         }
         catch (e){
@@ -39,7 +39,7 @@ function AddCourse(props) {
                             <input 
                                 type='text' 
                                 className='form-control' 
-                                placeholder='Enter Course Name ...'
+                                placeholder='Enter Alumni Name ...'
                                 value={courseInfo.name}
                                 onChange={e=>setcourseInfo({...courseInfo,name:e.target.value})}
                             />

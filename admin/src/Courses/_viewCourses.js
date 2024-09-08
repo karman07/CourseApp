@@ -19,7 +19,7 @@ function ViewCourse(props) {
 
     const fetchCourseData = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/courses/` + props.CourseId);
+            const response = await axios.get(`${BASE_URL}/courses/` + props.userId);
             if (response) {
                 console.log(response.data);
                 setcourseInfo(response.data);
@@ -34,7 +34,6 @@ function ViewCourse(props) {
 
     return (
         <div className='Course-view'>
-            <h1>Basic Info</h1>
             <div className='box'>
                 <div className='row'>
                     <div className='col-sm-12 col-md-6'>
@@ -55,7 +54,7 @@ function ViewCourse(props) {
                             <span>{courseInfo.type}</span>
                         </p>
                     </div>
-                    <div className='col-sm-50 col-md-6'>
+                    <div className='col-sm-12 col-md-6'>
                         <p>
                             <span>Image:</span>
                             <span>{courseInfo.image}</span>

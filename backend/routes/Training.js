@@ -3,14 +3,15 @@ const router = express.Router();
 const Training = require('../models/Training'); 
 
 router.post('/', async (req, res) => {
-    const { name, description, image, content } = req.body;
+    const { name, description, image, price, type } = req.body;
 
     try {
         const training = new Training({
             name,
             description,
             image,
-            content
+            price,
+            type
         });
 
         await training.save();
@@ -45,14 +46,15 @@ router.get('/:id', async (req, res) => {
 
 
 router.put('/:id', async (req, res) => {
-    const { name, description, image, content } = req.body;
+    const { name, description, image, price, type } = req.body;
 
     try {
         const training = await Training.findByIdAndUpdate(req.params.id, {
             name,
             description,
             image,
-            content
+            price,
+            type
         }, { new: true });
 
         if (!training) {

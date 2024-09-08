@@ -10,15 +10,15 @@ const alumniRoutes = require('./routes/Alumni');
 const placementRoutes = require('./routes/Placement');
 const userRoutes = require('./routes/User');
 const trainingRoutes = require('./routes/Training');
+const paymentRoutes = require('./routes/Payment')
 
 const app = express();
 const PORT = 3001;
 
-app.use(cors({
-  origin: 'http://localhost:3000' 
-}));
+app.use(cors());
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 //karmansingharora01
 //YJ6XKm2vXjNc9Grf
@@ -43,6 +43,7 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/alumni', alumniRoutes);
 app.use('/api/placements', placementRoutes);
 app.use('/api/training', trainingRoutes)
+app.use('/api/payment', paymentRoutes);
 
 // Start server
 app.listen(PORT, () => {

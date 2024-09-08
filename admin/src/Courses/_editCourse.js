@@ -64,13 +64,13 @@ function EditCourse(props) {
                     </div>
                     <div className='col-sm-12 col-md-6'>
                         <p>
-                            <span>Description</span>
+                            <span>Type :</span>
                             <input
                                 type='text'
                                 className='form-control'
                                 placeholder='Enter Description'
-                                value={courseInfo.description}
-                                onChange={e => setcourseInfo({ ...courseInfo, description: e.target.value })}
+                                value={courseInfo.type}
+                                onChange={e => setcourseInfo({ ...courseInfo, type: e.target.value })}
                             />
                         </p>
                     </div>

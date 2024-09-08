@@ -8,14 +8,14 @@ import AddUser from './_addAlumni';
 import EditUser from './_editAlumni';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 import { confirmDialog } from 'primereact/confirmdialog';
-import BASE_URL from '../Base/Base'
+import BASE_URL from '../Base/Base';
 
 function Training() {
     const [users, setUsersList] = useState([]);
     const [showViewMode, setShowViewMode] = useState(false);
     const [showAddMode, setShowAddMode] = useState(false);
     const [showEditMode, setShowEditMode] = useState(false);
-    const [selectedUserId, setSelectedUserId] = useState(null)
+    const [selectedUserId, setSelectedUserId] = useState(null);
 
     useEffect(() => {
         getAllUsers();
@@ -27,25 +27,23 @@ function Training() {
             if (response) {
                 setUsersList(response.data);
             }
+        } catch (e) {
+            console.log(e);
         }
-        catch (e) {
-            console.log(e)
-        }
-    }
+    };
 
     const actionsTemplate = (rowDate) => {
         return (
             <>
                 <button className='btn btn-success my-1' onClick={() => {
-                    console.log(rowDate._id)
-                    setSelectedUserId(rowDate._id)
-                    setShowViewMode(true)
+                    setSelectedUserId(rowDate._id);
+                    setShowViewMode(true);
                 }}>
                     <i className='pi pi-eye'></i>
                 </button>
                 <button className='btn btn-primary my-1' onClick={() => {
-                    setSelectedUserId(rowDate._id)
-                    setShowEditMode(true)
+                    setSelectedUserId(rowDate._id);
+                    setShowEditMode(true);
                 }}>
                     <i className='pi pi-file-edit'></i>
                 </button>
@@ -53,36 +51,38 @@ function Training() {
                     <i className='pi pi-trash'></i>
                 </button>
             </>
-        )
-    }
+        );
+    };
 
     const deleteUserConfirm = (_id) => {
         confirmDialog({
-            message: 'Are you sure you want to delete this user?',
+            message: 'Are you sure you want to delete this alumni?',
             header: 'Confirmation',
             icon: 'pi pi-trash',
             accept: () => deleteUser(_id),
         });
-    }
+    };
 
-    const deleteUser = async (_id) =>{
-        try{
-            const response = await axios.delete(`${BASE_URL}/Alumni/` + _id);
-            if(response){
+    const deleteUser = async (_id) => {
+        try {
+            const response = await axios.delete(`${BASE_URL}/alumni/` + _id);
+            if (response) {
                 getAllUsers();
             }
+        } catch (e) {
+            console.log(e);
         }
-        catch (e){
-            console.log(e)
-        }
-    }
+    };
 
-    const truncateText = (text, maxLength) => {
-        if (text.length > maxLength) {
-            return text.substring(0, maxLength) + '...';
-        }
-        return text;
-    }
+    const imageTemplate = (rowData) => {
+        return (
+            <img
+                src={rowData.image}
+                alt={rowData.name}
+                style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+            />
+        );
+    };
 
     return (
         <div className='users-page'>
@@ -95,14 +95,11 @@ function Training() {
                     </div>
                     <DataTable value={users}>
                         <Column field="name" header="Name"></Column>
-                        <Column 
-                            field="company" 
-                            header="Company" 
-                        ></Column>
+                        <Column field="company" header="Company"></Column>
                         <Column field="package" header="Package"></Column>
                         <Column field="batch" header="Batch"></Column>
-                        <Column field="image" header="Image" body={(rowData) => truncateText(rowData.image, 60)}></Column>
-                        <Column header="Actions" body={actionsTemplate} ></Column>
+                        <Column header="Image" body={imageTemplate}></Column>
+                        <Column header="Actions" body={actionsTemplate}></Column>
                     </DataTable>
                 </div>
             </div>
@@ -125,7 +122,7 @@ function Training() {
                 }} />
             </Dialog>
 
-            <Dialog header="Edit Exist Alumni"
+            <Dialog header="Edit Existing Alumni"
                 visible={showEditMode}
                 style={{ width: '70vw' }}
                 onHide={() => setShowEditMode(false)}>
@@ -137,9 +134,8 @@ function Training() {
             </Dialog>
 
             <ConfirmDialog />
-
         </div>
-    )
+    );
 }
 
 export default Training;

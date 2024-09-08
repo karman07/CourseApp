@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Course = require('../models/Course'); // Import Course model
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 
 const JWT_SECRET = 'f4d5c6e7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a0b1c2d3e4f5';
 
@@ -31,7 +31,6 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -53,16 +52,30 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/user/:name', async (req, res) => {
-  try {
-      const user = await User.findOne({ name: req.params.name });
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const user = await User.findById(id);
+  
       if (!user) {
-          return res.status(404).json({ message: 'User not found' });
+        return res.status(404).send({ message: 'User not found' });
       }
-      res.json(user);
-  } catch (error) {
-      res.status(500).json({ message: 'Server error', error });
-  }
+  
+      res.status(200).send(user);
+    } catch (error) {
+      res.status(500).send({ message: 'Server error', error });
+    }
+  });
+
+
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find().populate('courses');
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
 });
 
 module.exports = router;
