@@ -3,46 +3,49 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
+
 const courseRoutes = require('./routes/Course');
 const alumniRoutes = require('./routes/Alumni');
 const placementRoutes = require('./routes/Placement');
 const userRoutes = require('./routes/User');
 const trainingRoutes = require('./routes/Training');
+const paymentRoutes = require('./routes/Payment')
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(cors());
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 //karmansingharora01
 //YJ6XKm2vXjNc9Grf
-mongoose.connect(
-	'mongodb+srv://karmansingharora01:YJ6XKm2vXjNc9Grf@cluster0.c0bjz.mongodb.net/',
-	{
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	}
-);
+mongoose.connect('mongodb+srv://karmansingharora01:YJ6XKm2vXjNc9Grf@cluster0.c0bjz.mongodb.net/', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }); 
+  
+  const db = mongoose.connection;
+  
 
-const db = mongoose.connection;
-
-db.on('error', (error) => {
-	console.error('Error connecting to MongoDB:', error);
-});
-
-db.once('open', () => {
-	console.log('Connected to MongoDB successfully');
-});
+  db.on('error', (error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+  
+  db.once('open', () => {
+    console.log('Connected to MongoDB successfully');
+  });
 
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/alumni', alumniRoutes);
 app.use('/api/placements', placementRoutes);
-app.use('/api/training', trainingRoutes);
+app.use('/api/training', trainingRoutes)
+app.use('/api/payment', paymentRoutes);
 
 // Start server
 app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

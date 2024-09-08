@@ -3,6 +3,20 @@ const router = express.Router();
 const Alumni = require('../models/Alumni');
 
 
+router.get('/:id', async (req, res) => {
+  try {
+    const alumni = await Alumni.findById(req.params.id);
+
+    if (!alumni) {
+      return res.status(404).send({ message: 'Alumni not found' });
+    }
+
+    res.status(200).send(alumni);
+  } catch (error) {
+    res.status(500).send({ message: 'Server error', error });
+  }
+});
+
 router.post('/', async (req, res) => {
   const alumni = new Alumni(req.body);
   try {
